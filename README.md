@@ -30,8 +30,8 @@ Dans ce travail de laboratoire, vous allez configurer des routeurs Cisco émulé
 -	Capture Sniffer avec filtres précis sur la communication à épier
 -	Activation du mode « debug » pour certaines fonctions du routeur
 -	Observation des protocoles IPSec
- 
- 
+
+
 ## Matériel
 
 La manière la plus simple de faire ce laboratoire est dans les machines des salles de labo. Le logiciel d'émulation c'est eve-ng. Vous trouverez un [guide très condensé](files/Fonctionnement_EVE-NG.pdf) pour l'utilisation de eve-ng ici.
@@ -108,7 +108,7 @@ Un « protocol » différent de `up` indique la plupart du temps que l’interfa
 
 ---
 
-**Réponse :**  
+**Réponse :**  Non aucun problème n'a été détecté. 
 
 ---
 
@@ -137,8 +137,8 @@ R2# show arp (utile si un firewall est actif)
 Pour votre topologie il est utile de contrôler la connectivité entre :
 
 - R1 vers ISP1 (193.100.100.254)
-- R2 vers ISP2 (193.200.200.254)
-- R2 (193.200.200.1) vers RX1 (193.100.100.1) via Internet
+- R1 vers ISP1 (193.100.100.254)
+- R2 (193.200.200.1) vers R1 (193.100.100.1) via Internet
 - R2 (172.17.1.1) et votre poste « VPC »
 
 **Question 2: Tous vos pings ont-ils passé ? Si non, est-ce normal ? Dans ce cas, trouvez la source du problème et corrigez-la.**
@@ -146,6 +146,15 @@ Pour votre topologie il est utile de contrôler la connectivité entre :
 ---
 
 **Réponse :**  
+
+| connexion                                               | résultat |
+| ------------------------------------------------------- | -------- |
+| R1 vers ISP1 (193.100.100.254)                          | OK       |
+| R1 vers ISP1 (193.100.100.254)                          | OK       |
+| R2 (193.200.200.1) vers R1 (193.100.100.1) via Internet | OK       |
+| R2 (172.17.1.1) et votre poste « VPC »                  | OK       |
+
+Tous les pings ont passés sans devoir changer la configuration donnée.
 
 ---
 
