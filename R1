@@ -1,0 +1,172 @@
+!
+! Last configuration change at 14:44:40 EET Thu May 7 2020
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname RX1
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+clock timezone EET 2 0
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+          
+RX1#show running-config 
+Building configuration...
+
+Current configuration : 1872 bytes
+!
+! Last configuration change at 14:44:40 EET Thu May 7 2020
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname RX1
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+clock timezone EET 2 0
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!         
+!         
+!         
+!         
+!         
+!         
+          
+          
+!         
+!         
+!         
+!         
+no ip domain lookup
+ip domain name lab.local
+ip cef    
+no ipv6 cef
+!         
+multilink bundle-name authenticated
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+archive   
+ log config
+  hidekeys
+!         
+redundancy
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+crypto isakmp policy 20
+ encr aes 256
+ authentication pre-share
+ group 5  
+ lifetime 1800
+crypto isakmp key cisco-1 address 193.200.200.1   no-xauth
+crypto isakmp keepalive 30 3
+!         
+crypto ipsec security-association lifetime kilobytes 2560
+crypto ipsec security-association lifetime seconds 300
+!         
+crypto ipsec transform-set STRONG esp-aes 192 esp-sha-hmac 
+ mode tunnel
+!         
+!         
+!         
+crypto map MY-CRYPTO 10 ipsec-isakmp 
+ set peer 193.200.200.1
+ set security-association idle-time 900
+ set transform-set STRONG 
+ match address TO-CRYPT
+!         
+!         
+!         
+!         
+!         
+interface Loopback1
+ ip address 172.16.1.1 255.255.255.0
+!         
+interface Ethernet0/0
+ ip address 193.100.100.1 255.255.255.0
+ crypto map MY-CRYPTO
+!         
+interface Ethernet0/1
+ no ip address
+ shutdown 
+!         
+interface Ethernet0/2
+ no ip address
+ shutdown 
+!         
+interface Ethernet0/3
+ no ip address
+ shutdown 
+!         
+router rip
+ version 2
+ network 172.16.0.0
+ network 193.100.100.0
+ no auto-summary
+!         
+ip forward-protocol nd
+!         
+!         
+no ip http server
+no ip http secure-server
+!         
+ip access-list extended TO-CRYPT
+ permit ip 172.16.1.0 0.0.0.255 172.17.1.0 0.0.0.255
+!         
+!         
+!         
+!         
+control-plane
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+!         
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login    
+ transport input none
+!         
+!         
+end

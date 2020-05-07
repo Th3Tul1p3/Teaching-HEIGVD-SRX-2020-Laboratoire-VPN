@@ -172,12 +172,15 @@ Pour déclencher et pratiquer les captures vous allez « pinger » votre routeur
 -	Une trace sniffer (Wireshark) à la sortie du routeur R2 vers Internet. Si vous ne savez pas utiliser Wireshark avec eve-ng, référez-vous au document explicatif eve-ng. Le filtre de **capture** (attention, c'est un filtre de **capture** et pas un filtre d'affichage) suivant peut vous aider avec votre capture : `ip host 193.100.100.1`. 
 -	Les messages de R1 avec `debug ip icmp`.
 
-
 **Question 3: Montrez vous captures**
 
 ---
 
-**Screenshots :**  
+**Screenshots :** 
+
+![question3](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question3a.PNG)
+
+![question3](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question3b.PNG)
 
 ---
 
@@ -350,7 +353,10 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 
 ---
 
-**Réponse :**  
+**Réponse :**  Nous avons eu deux warning durant la configuration d'IPSec sur les deux routeurs :
+
+1. La valeur **lifetime** du **poids** donné (2560 KB) est plus petite que la valeur recommandé optimale de 102400 KB.
+2. La valeur **lifetime** du **temps** donné (300 secondes) est plus petite que la valeur recommandé optimale de 900 secondes.
 
 ---
 
@@ -358,7 +364,11 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 
 ---
 
-**Réponse :**  
+**Réponse :**
+
+- **lifetime** (IKE et IPSec) : Spécifie le temps de vie d'une SA dans la phase 1 pour la configuration IKE et dans la phase 2 pour la configuration IPSec.
+- **idle-time** (IPSec) : Permet de supprimer des SA associé a des pairs **inactifs** avant l'expiration du *lifetime*.
+- **keepalive** (IKE) : Autorise l'envoie de paquets DPD (Dead Peer Detection) au pairs à intervalle de temps régulier.
 
 ---
 
@@ -397,7 +407,7 @@ Le mode utilisé ici est le mode tunnel.
 
 ---
 
-**Réponse :**  
+**Réponse :**  En mode ESP le paquet entier est chiffré avec un padding et ensuite on rajoute une entête et une en-queue. L'algorithme utilisée est AES 192 bits.  
 
 Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les données et l'ESP trailer.
 
@@ -408,7 +418,7 @@ Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les donn�
 
 ---
 
-**Réponse :**  
+**Réponse :**  L'entête ESP, le paquet IP original sont authentifiés. tout le paquet. L’algorithme est hmac avec SHA.
 
 Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les données, l'entête ESP et l'ESP trailer.
 
@@ -419,6 +429,6 @@ Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les donn�
 
 ---
 
-**Réponse :**  
+**Réponse :**  L'intégrité du paquet IP est garanti par la somme de contrôle se trouvant à la fin du paquet. Ensuite ce paquet est chiffré est encapsuler par le protocole ESP. 
 
 ---
