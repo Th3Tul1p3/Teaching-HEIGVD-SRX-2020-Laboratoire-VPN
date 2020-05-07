@@ -353,7 +353,10 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 
 ---
 
-**Réponse :**  
+**Réponse :**  Nous avons eu deux warning durant la configuration d'IPSec sur les deux routeurs :
+
+1. La valeur **lifetime** du **poids** donné (2560 KB) est plus petite que la valeur recommandé optimale de 102400 KB.
+2. La valeur **lifetime** du **temps** donné (300 secondes) est plus petite que la valeur recommandé optimale de 900 secondes.
 
 ---
 
@@ -361,7 +364,11 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 
 ---
 
-**Réponse :**  
+**Réponse :**
+
+- **lifetime** (IKE et IPSec) : Spécifie le temps de vie d'une SA dans la phase 1 pour la configuration IKE et dans la phase 2 pour la configuration IPSec.
+- **idle-time** (IPSec) : Permet de supprimer des SA associé a des pairs **inactifs** avant l'expiration du *lifetime*.
+- **keepalive** (IKE) : Autorise l'envoie de paquets DPD (Dead Peer Detection) au pairs à intervalle de temps régulier.
 
 ---
 
