@@ -407,20 +407,21 @@ Le mode utilisé ici est le mode tunnel.
 
 ---
 
-**Réponse :**  En mode ESP le paquet entier est chiffré avec un padding et ensuite on rajoute une entête et une en-queue. L'algorithme utilisée est AES 192 bits.  
+**Réponse :**
 
-Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les données et l'ESP trailer.
+Avec le protocole ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les données et l'ESP trailer.  
+L'algorithme utilisée est AES 192 bits.
 
 ---
-
 
 **Question 11: Expliquez quelles sont les parties du paquet qui sont authentifiées. Donnez l’algorithme cryptographique correspondant.**
 
 ---
 
-**Réponse :**  L'entête ESP, le paquet IP original sont authentifiés. tout le paquet. L’algorithme est hmac avec SHA.
+**Réponse :**
 
-Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les données, l'entête ESP et l'ESP trailer.
+Avec le protocole ESP en mode tunnel, l'entête IP original est authentifiée ainsi que les données, l'entête ESP et l'ESP trailer.  
+L’algorithme est HMAC avec SHA-1.
 
 ---
 
@@ -429,6 +430,8 @@ Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les donn�
 
 ---
 
-**Réponse :**  L'intégrité du paquet IP est garanti par la somme de contrôle se trouvant à la fin du paquet. Ensuite ce paquet est chiffré est encapsuler par le protocole ESP. 
+**Réponse :** 
+
+L'intégrité du paquet IP est garanti par la somme de contrôle se trouvant à la fin du paquet. Ensuite ce paquet est chiffré est encapsuler par le protocole ESP. 
 
 ---
