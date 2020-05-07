@@ -251,7 +251,19 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 
 ---
 
-**Réponse :**  
+**Réponse :** Cette commande permet d'afficher les algorithmes de chiffrement utilisé sur les deux routeurs :
+
+**Routeur R1** :
+
+![question4_R1](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question4_R1.PNG)
+
+**Routeur R2** :
+
+![question4_R2](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question4_R2.PNG)
+
+
+
+
 
 ---
 
@@ -260,7 +272,17 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 
 ---
 
-**Réponse :**  
+**Réponse :** Cette commande permet d'afficher les clés de chiffrement utilisé sur les deux routeurs :
+
+**Routeur R1** :
+
+![question5_R1](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question5_R1.PNG)
+
+**Routeur R2** :
+
+![question5_R2](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question5_R2.PNG)
+
+On peut voir que la clé partagé est *cisco-1*. Cette clé est très faible car elle ne fait que 7 caractères. Il faudrait utiliser une clé allant jusqu'à 128 bytes.
 
 ---
 
