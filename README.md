@@ -390,7 +390,7 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 ---
 
-**Réponse :**  
+**Réponse :**  En mode ESP le paquet entier est chiffré avec un padding et ensuite on rajoute une entête et une en-queue. L'algorithme utilisée est AES 192 bits.  
 
 ---
 
@@ -399,7 +399,7 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 ---
 
-**Réponse :**  
+**Réponse :**  L'entête ESP, le paquet IP original sont authentifiés. tout le paquet. L’algorithme est hmac avec SHA.
 
 ---
 
@@ -408,6 +408,6 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 ---
 
-**Réponse :**  
+**Réponse :**  L'intégrité du paquet IP est garanti par la somme de contrôle se trouvant à la fin du paquet. Ensuite ce paquet est chiffré est encapsuler par le protocole ESP. 
 
 ---
