@@ -372,7 +372,13 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 ---
 
-**Réponse :**  
+**Réponse :**
+
+Le protocole VPN utilisé dans ce laboratoire est la suite de protocoles IPsec.
+
+Les associations de sécurité (SA) d'IPsec sont établies par ISAKMP. Ce dernier utilise des clés secrètes pré-partagées avec IKE (Internet Key Exchange).
+
+Les ISAKMP est configuré pour utiliser le protocole ESP (Encapsulating Security Payload).
 
 ---
 
@@ -383,14 +389,17 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
----
+Le mode utilisé ici est le mode tunnel.
 
+---
 
 **Question 10: Expliquez quelles sont les parties du paquet qui sont chiffrées. Donnez l’algorithme cryptographique correspondant.**
 
 ---
 
 **Réponse :**  
+
+Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les données et l'ESP trailer.
 
 ---
 
@@ -400,6 +409,8 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 ---
 
 **Réponse :**  
+
+Avec ESP en mode tunnel, l'entête IP original est chiffrée ainsi que les données, l'entête ESP et l'ESP trailer.
 
 ---
 
