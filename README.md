@@ -172,12 +172,15 @@ Pour déclencher et pratiquer les captures vous allez « pinger » votre routeur
 -	Une trace sniffer (Wireshark) à la sortie du routeur R2 vers Internet. Si vous ne savez pas utiliser Wireshark avec eve-ng, référez-vous au document explicatif eve-ng. Le filtre de **capture** (attention, c'est un filtre de **capture** et pas un filtre d'affichage) suivant peut vous aider avec votre capture : `ip host 193.100.100.1`. 
 -	Les messages de R1 avec `debug ip icmp`.
 
-
 **Question 3: Montrez vous captures**
 
 ---
 
-**Screenshots :**  
+**Screenshots :** 
+
+![question3](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question3a.PNG)
+
+![question3](S:\Cours\Dev\BA4\SRX\Labos\Labo3-VPN\images\question3b.PNG)
 
 ---
 
