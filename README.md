@@ -261,9 +261,11 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 
 ![question4_R2](./images/question4_R2.PNG)
 
+L'algorithme Triple DES à un priorité supérieur (10) mais il n'est pas disponible sur les deux routeurs donc c'est algorithme AES 256bits qui sera utilisé. A noter également que MD5 est cassé.
 
+Pour ce qui est de la taille des clés, le groupe 5 (1536 bits) est trop faible. Il est recommandé d'utiliser des clés de 3072 bits pour une sécurité d'au moins 10 ans. Cela correspond au groupe Diffie-Hellman 15.
 
-
+Source : https://www.keylength.com/fr/3/
 
 ---
 
